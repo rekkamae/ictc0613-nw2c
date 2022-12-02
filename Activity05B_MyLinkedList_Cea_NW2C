@@ -1,0 +1,76 @@
+package Activity5B_MyLinkedList_Cea_NW2C;
+
+import java.util.Scanner;
+public class Activity05B_MyLinkedList_Cea_NW2C {
+    public int dAcode, dAge;
+    public String dName , dMid, dSur, dTel, dGender;
+    public Activity5B_MyLinkedList_Cea_NW2C next;
+    public static Activity5B_MyLinkedList_Cea_NW2C firstNode;
+    public static Activity5B_MyLinkedList_Cea_NW2C lastNode = null;
+    
+    public Activity05B_MyLinkedList_Cea_NW2C(String fName, String mName, String lName, int aCode, String telNum, String gender, int age, Activity5B_MyLinkedList_Cea_NW2C next){
+        this.dName = Name;
+        this.dMid = mName;
+        this.dSur = lName;
+        this.dAcode = aCode;
+        this.dTel = telNum;
+        this.dGender = gender;
+        this.dAge = age;
+        this.next = next;
+    }
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        int membersNum;
+        String fName, mName, lName, gender, telNum;
+        int aCode, age;
+        
+        System.out.print("How many members will be entered? ");
+        membersNum = Integer.parseInt(input.nextLine());
+          System.out.println();
+          
+        for(int i=0; i<membersNum; i++){
+            System.out.println("Kindly give the information of member #" +(i+1) );
+            
+             System.out.print("Enter the member first name: ");
+                fName = input.nextLine();
+             System.out.print("Enter the member middle name: ");
+                mName = input.nextLine();
+             System.out.print("Enter the member last name: ");
+                lName = input.nextLine();
+             System.out.print("Enter the member area code: ");
+                aCode = Integer.parseInt(input.nextLine());
+             System.out.print("Enter member telephone number: ");
+                telNum = input.nextLine();
+             System.out.print("Enter the member gender: ");
+                gender = input.nextLine();
+             System.out.print("Enter the member age: ");
+                age = Integer.parseInt(input.nextLine());
+              System.out.println();
+              
+          Activity5B_MyLinkedList_Cea_NW2C n = new Activity5B_MyLinkedList_Cea_NW2C(fName, mName, lName, aCode, telNum, gender, age,  null);
+            if(lastNode != null)
+                {
+                lastNode.next = n;
+                lastNode = n;
+                }
+            else
+                {
+                firstNode = n;
+                lastNode = n;
+                }
+        }
+               
+            Activity5B_MyLinkedList_Cea_NW2C n = firstNode;
+            while(n != null) { 
+                System.out.println("Welcome to the club " +n.dName + " " +n.dMid+ " " +n.dSur+ "!");
+                System.out.println("Your area code and telephone number are (" +n.dAcode+ ") " +n.dTel);
+                System.out.println("You are a " +n.dGender+ " member and your age is " +n.dAge+ ".");
+                System.out.println();
+                
+                n = n.next;
+            }
+        
+         }
+     }
